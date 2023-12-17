@@ -1,0 +1,311 @@
+{
+   "Pending" : null,
+   "ProfileVersion" : 267,
+   "Synchronized" : {
+      "personaProfile" : {
+         "personaCollection" : {
+            "plApps" : null,
+            "tlApps" : null,
+            "tplApps" : null,
+            "universalApp" : [
+               {
+                  "hasSeenPersonaClassicSkinDifferencesPrompt" : true,
+                  "id" : "c18e65aa-7b21-4637-9b63-8ad63622ef01_Steve",
+                  "isPlatformLocked" : false,
+                  "isTitleLocked" : false,
+                  "lastUsedPersonaSlot" : "persona_profile_persona3",
+                  "packId" : "c18e65aa-7b21-4637-9b63-8ad63622ef01",
+                  "stopShowingSkinChangePrompt" : false,
+                  "typeId" : "skin"
+               }
+            ]
+         },
+         "slotname" : "",
+         "version" : "0.1.0"
+      },
+      "personaProfile1" : {
+         "personaCollection" : {
+            "plApps" : null,
+            "tlApps" : null,
+            "tplApps" : null,
+            "universalApp" : [
+               {
+                  "arm" : "wide",
+                  "skcol" : "#ffebd0b0",
+                  "skin" : false
+               },
+               {
+                  "col" : [ "#0", "#0", "#ffefbbb1", "#0" ],
+                  "id" : "83c940ce-d7b8-4603-8d73-c1234e322cce/d"
+               },
+               {
+                  "id" : "1042557f-d1f9-44e3-ba78-f404e8fb7363/d"
+               },
+               {
+                  "id" : "8f96d1f8-e9bb-40d2-acc8-eb79746c5d7c/d"
+               },
+               {
+                  "id" : "80eda582-cda7-4fce-9d6f-89a60f2448f1/d"
+               },
+               {
+                  "id" : "96db6e5b-dc69-4ebc-bd36-cb1b08ffb0f4/d"
+               },
+               {
+                  "id" : "5f64b737-b88a-40ea-be1f-559840237146/d"
+               },
+               {
+                  "id" : "0948e089-6f9c-40c1-886b-cd37add03f69/d"
+               },
+               {
+                  "col" : [ "#ffeb983f", "#0", "#0", "#0" ],
+                  "id" : "70be0801-a93f-4ce0-8e3f-7fdeac1e03b9/d"
+               },
+               {
+                  "col" : [ "#ff236224", "#ffeb983f", "#ffe9ecec", "#0" ],
+                  "id" : "a0f263b3-e093-4c85-aadb-3759417898ff/d"
+               },
+               {
+                  "id" : "17428c4c-3813-4ea1-b3a9-d6a32f83afca/de"
+               },
+               {
+                  "id" : "ce5c0300-7f03-455d-aaf1-352e4927b54d/de"
+               },
+               {
+                  "id" : "9a469a61-c83b-4ba9-b507-bdbe64430582/de"
+               },
+               {
+                  "id" : "4c8ae710-df2e-47cd-814d-cc7bf21a3d67/de"
+               }
+            ]
+         },
+         "slotname" : "",
+         "version" : "0.1.0"
+      },
+      "personaProfile2" : {
+         "personaCollection" : {
+            "plApps" : null,
+            "tlApps" : null,
+            "tplApps" : null,
+            "universalApp" : [
+               {
+                  "arm" : "wide",
+                  "skcol" : "#ffb9674a",
+                  "skin" : true
+               },
+               {
+                  "id" : "8f96d1f8-e9bb-40d2-acc8-eb79746c5d7c/d"
+               },
+               {
+                  "id" : "1042557f-d1f9-44e3-ba78-f404e8fb7363/d"
+               },
+               {
+                  "col" : [ "#0", "#0", "#ff774320", "#0" ],
+                  "id" : "83c940ce-d7b8-4603-8d73-c1234e322cce/d"
+               },
+               {
+                  "id" : "e86ab12f-d79c-6e47-b3af-19a3c965505a/d"
+               },
+               {
+                  "id" : "a1f26368-ebfe-843a-e6ff-f2dc724108ec/d"
+               },
+               {
+                  "id" : "34524691-ff49-da97-8ae0-d07ef8a0c118/d"
+               },
+               {
+                  "col" : [ "#ff2f2f2f", "#0", "#0", "#0" ],
+                  "id" : "36f3af09-1871-f074-148a-9f748ba3ca42/d"
+               },
+               {
+                  "col" : [ "#ff141519", "#ff2f2f2f", "#ffe9ecec", "#0" ],
+                  "id" : "a0f263b3-e093-4c85-aadb-3759417898ff/d"
+               },
+               {
+                  "id" : "33c7a041-46be-73ad-55aa-7e1b18563364/d"
+               },
+               {
+                  "id" : "c18e65aa-7b21-4637-9b63-8ad63622ef01.Custom889f5684-8f76-3ee0-96ca-8f9e2d6a5d3c"
+               },
+               {
+                  "id" : "17428c4c-3813-4ea1-b3a9-d6a32f83afca/de"
+               },
+               {
+                  "id" : "ce5c0300-7f03-455d-aaf1-352e4927b54d/de"
+               },
+               {
+                  "id" : "9a469a61-c83b-4ba9-b507-bdbe64430582/de"
+               },
+               {
+                  "id" : "4c8ae710-df2e-47cd-814d-cc7bf21a3d67/de"
+               }
+            ]
+         },
+         "slotname" : "",
+         "version" : "0.1.0"
+      },
+      "personaProfile3" : {
+         "personaCollection" : {
+            "plApps" : null,
+            "tlApps" : null,
+            "tplApps" : null,
+            "universalApp" : [
+               {
+                  "arm" : "wide",
+                  "skcol" : "#b37b62",
+                  "skin" : true
+               },
+               {
+                  "id" : "8f96d1f8-e9bb-40d2-acc8-eb79746c5d7c/d"
+               },
+               {
+                  "id" : "1042557f-d1f9-44e3-ba78-f404e8fb7363/d"
+               },
+               {
+                  "id" : "f1e4c577-19ba-4d77-9222-47f145857f78/d"
+               },
+               {
+                  "id" : "49f93789-a512-4c47-95cb-0606cdc1c2be/d"
+               },
+               {
+                  "id" : "68bfe60d-f30a-422f-b32c-72374ebdd057/d"
+               },
+               {
+                  "col" : [ "#0", "#0", "#774235", "#0" ],
+                  "id" : "52dd0726-cd68-4d7d-8561-515a4866de39/d"
+               },
+               {
+                  "col" : [ "#523d89", "#0", "#0", "#0" ],
+                  "id" : "a0f263b3-e093-4c85-aadb-3759417898ff/d"
+               },
+               {
+                  "col" : [ "#2f1f0f", "#0", "#0", "#0" ],
+                  "id" : "2bb1473b-9a5c-4eae-9fd5-82302a6aa3da/d"
+               },
+               {
+                  "id" : "b989b8ac-4979-4190-b706-079534e0b7e6/f"
+               },
+               {
+                  "id" : "ef479b6d-7072-47aa-8985-0f025cd24cdb/f"
+               },
+               {
+                  "id" : "c18e65aa-7b21-4637-9b63-8ad63622ef01.Customae46e6da-f5f9-300d-9d71-ea68f62a9c12"
+               },
+               {
+                  "id" : "7cec98d8-55cc-44fe-b0ae-2672b0b2bd37/fe"
+               },
+               {
+                  "id" : "6d9f24c0-6246-4c92-8169-4648d1981cbb/fe"
+               },
+               {
+                  "id" : "efc2f0f5-af00-4d9e-a4b1-78f18d63be79/fe"
+               },
+               {
+                  "id" : "17428c4c-3813-4ea1-b3a9-d6a32f83afca/de"
+               }
+            ]
+         },
+         "slotname" : "",
+         "version" : "0.1.0"
+      },
+      "personaProfile4" : {
+         "personaCollection" : {
+            "plApps" : null,
+            "tlApps" : null,
+            "tplApps" : null,
+            "universalApp" : [
+               {
+                  "arm" : "wide",
+                  "skcol" : "#f2dbbd",
+                  "skin" : true
+               },
+               {
+                  "id" : "f1e4c577-19ba-4d77-9222-47f145857f78/d"
+               },
+               {
+                  "id" : "1042557f-d1f9-44e3-ba78-f404e8fb7363/d"
+               },
+               {
+                  "id" : "8f96d1f8-e9bb-40d2-acc8-eb79746c5d7c/d"
+               },
+               {
+                  "id" : "b6702f0e-a4b5-497a-8820-6c8e3946bb55/d"
+               },
+               {
+                  "col" : [ "#ff158991", "#0", "#0", "#0" ],
+                  "id" : "9624b609-1031-4d5e-a7e8-0a2f11661397/f"
+               },
+               {
+                  "col" : [ "#ff158991", "#0", "#0", "#0" ],
+                  "id" : "9b03ca5f-a5c5-4c60-9ed9-3f91c63f65fc/f"
+               },
+               {
+                  "col" : [ "#0", "#0", "#efbbb1", "#0" ],
+                  "id" : "de0580d8-8474-4470-92cc-5975d218d9f1/f"
+               },
+               {
+                  "col" : [ "#236224", "#0", "#0", "#0" ],
+                  "id" : "3f02d80f-221b-4b1e-8ba3-3397aa9123c8/f"
+               },
+               {
+                  "id" : "1e32496a-80e6-4632-87fd-1eaad2fcd024/f"
+               },
+               {
+                  "id" : "19c2ce58-549c-4b74-a388-a22df30d37d7/f"
+               },
+               {
+                  "id" : "c9bc7d6d-2dd9-478b-948a-fc365058f9fc/f"
+               },
+               {
+                  "id" : "9276fc64-db9b-427e-b051-7e77bf48b0ac.Devil"
+               }
+            ]
+         },
+         "slotname" : "",
+         "version" : "0.1.0"
+      },
+      "personaProfile5" : {
+         "personaCollection" : {
+            "universalApp" : [
+               {
+                  "arm" : "slim",
+                  "skcol" : "#f2dbbd",
+                  "skin" : true
+               },
+               {
+                  "id" : "8f96d1f8-e9bb-40d2-acc8-eb79746c5d7c/d"
+               },
+               {
+                  "id" : "1042557f-d1f9-44e3-ba78-f404e8fb7363/d"
+               },
+               {
+                  "id" : "0948e089-6f9c-40c1-886b-cd37add03f69/d"
+               },
+               {
+                  "id" : "96db6e5b-dc69-4ebc-bd36-cb1b08ffb0f4/d"
+               },
+               {
+                  "id" : "5f64b737-b88a-40ea-be1f-559840237146/d"
+               },
+               {
+                  "id" : "80eda582-cda7-4fce-9d6f-89a60f2448f1/d"
+               },
+               {
+                  "col" : [ "#0", "#0", "#efbbb1", "#0" ],
+                  "id" : "83c940ce-d7b8-4603-8d73-c1234e322cce/d"
+               },
+               {
+                  "col" : [ "#236224", "#0", "#0", "#0" ],
+                  "id" : "a0f263b3-e093-4c85-aadb-3759417898ff/d"
+               },
+               {
+                  "col" : [ "#e89d4c", "#0", "#0", "#0" ],
+                  "id" : "70be0801-a93f-4ce0-8e3f-7fdeac1e03b9/d"
+               },
+               {
+                  "id" : "38ab1a5a-3645-4a03-927c-0637f8832c8b.MysticBlue"
+               }
+            ]
+         },
+         "version" : "0.0.1"
+      }
+   }
+}
