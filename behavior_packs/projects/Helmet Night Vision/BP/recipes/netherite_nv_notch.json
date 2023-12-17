@@ -1,0 +1,40 @@
+{
+	"format_version": "1.19.60",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:netherite_nv_notch"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			"AMA",
+			"THE",
+			"ACA"
+		],
+		"key": {
+			"A": {
+				"item": "minecraft:beacon"
+			},
+			"H": {
+				"item": "bridge:netherite_nv_helmet"
+			},
+			"M": {
+				"item": "minecraft:enchanted_golden_apple"
+			},
+			"T": {
+				"item": "minecraft:sculk_catalyst"
+			},
+			"E": {
+				"item": "minecraft:recovery_compass"
+			},
+			"C": {
+				"item": "minecraft:music_disc_pigstep"
+			}
+		},
+		"result": {
+			"item": "bridge:netherite_nv_helmet_notch",
+			"count": 1
+		}
+	}
+}

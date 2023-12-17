@@ -1,0 +1,40 @@
+{
+	"format_version": "1.19.60",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:netherite_nv"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			"AMA",
+			"THE",
+			"ACA"
+		],
+		"key": {
+			"A": {
+				"item": "minecraft:golden_apple"
+			},
+			"H": {
+				"item": "minecraft:netherite_helmet"
+			},
+			"M": {
+				"item": "minecraft:conduit"
+			},
+			"T": {
+				"item": "minecraft:turtle_helmet"
+			},
+			"E": {
+				"item": "minecraft:end_crystal"
+			},
+			"C": {
+				"item": "minecraft:elytra"
+			}
+		},
+		"result": {
+			"item": "bridge:netherite_nv_helmet",
+			"count": 1
+		}
+	}
+}

@@ -1,0 +1,44 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"iHiram"
+		]
+	},
+	"header": {
+		"name": "pack.name",
+		"description": "pack.description",
+		"min_engine_version": [
+			1,
+			19,
+			60
+		],
+		"uuid": "14416d33-8131-4132-89e7-264b5af75df7",
+		"version": [
+			1,
+			0,
+			0
+		]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "9a55fcb8-496c-4121-a986-275a32da5b53",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "e28c89d0-f00c-4dd1-a925-177c998181b6",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	]
+}

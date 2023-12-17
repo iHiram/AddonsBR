@@ -1,0 +1,16 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.minimaprender": {
+      "geometry": "Geometry.test",
+      "materials": [
+        {
+          "*": "Material.playerpointglow"
+        }
+      ],
+      "textures": ["Texture.test"],
+      "is_hurt_color": {},
+      "on_fire_color": {}
+    }
+  }
+}

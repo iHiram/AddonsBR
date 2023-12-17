@@ -1,0 +1,44 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"iHiram"
+		]
+	},
+	"header": {
+		"name": "iH Extreme",
+		"description": "Mobs extremos",
+		"min_engine_version": [
+			1,
+			19,
+			50
+		],
+		"uuid": "871b0f5c-6087-48a5-bb96-ecea710dd02a",
+		"version": [
+			1,
+			0,
+			20
+		]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "96c9da19-f8eb-4a01-ad26-9a100f814c96",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "2000aeec-0440-4cc5-bee0-3f97eb7a3d38",
+			"version": [
+				1,
+				0,
+				1
+			]
+		}
+	]
+}

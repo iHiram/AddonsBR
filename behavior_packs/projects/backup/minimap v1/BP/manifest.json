@@ -1,0 +1,67 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"iHiram"
+		]
+	},
+	"header": {
+		"name": "minimap v1",
+		"description": "",
+		"min_engine_version": [
+			1,
+			19,
+			60
+		],
+		"uuid": "45975b39-cff5-4b03-9930-db7e25fe1a8c",
+		"version": [
+			1,
+			0,
+			0
+		]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "7c1bc080-2238-447f-ac62-f289d833216f",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "ffddbdd4-726a-4eb2-bad2-c58fcd3c5a56",
+			"entry": "scripts/main.js",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "8ec5fdfc-d46b-4fec-95f1-3f6abac5a057",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.3.0-beta"
+		},
+		{
+			"module_name": "@minecraft/server-gametest",
+			"version": "1.0.0-beta"
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "1.1.0-beta"
+		}
+	]
+}

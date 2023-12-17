@@ -1,0 +1,12 @@
+{
+	"resource_pack_name": "NightVision",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"bridge_helmet_nv_helmet": {
+			"textures": "textures/items/helmet_nv_helmet"
+		},
+		"bridge_aaa_helmet": {
+			"textures": "textures/items/aaa_helmet"
+		}
+	}
+}

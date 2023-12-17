@@ -1,0 +1,37 @@
+{
+	"type": "minecraftBedrock",
+	"name": "DxHs_Minimap (2)",
+	"namespace": "bridge",
+	"authors": [
+		"Unknown"
+	],
+	"targetVersion": "1.19.60",
+	"description": "§6By Halo333 and Dexten Mods\n§4Respect our original links",
+	"experimentalGameplay": {},
+	"bdsProject": false,
+	"packs": {
+		"resourcePack": "./RP"
+	},
+	"worlds": [
+		"./worlds/*"
+	],
+	"compiler": {
+		"plugins": [
+			"generatorScripts",
+			"typeScript",
+			"entityIdentifierAlias",
+			"customEntityComponents",
+			"customItemComponents",
+			"customBlockComponents",
+			"customCommands",
+			"moLang",
+			"formatVersionCorrection",
+			[
+				"simpleRewrite",
+				{
+					"packName": "DxHs_Minimap (2)"
+				}
+			]
+		]
+	}
+}

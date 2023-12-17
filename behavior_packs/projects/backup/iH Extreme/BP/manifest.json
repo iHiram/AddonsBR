@@ -1,0 +1,65 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"iHiram"
+		]
+	},
+	"header": {
+		"name": "iH Extreme",
+		"description": "Mobs extremos",
+		"min_engine_version": [
+			1,
+			18,
+			0
+		],
+		"uuid": "2000aeec-0440-4cc5-bee0-3f97eb7a3d38",
+		"version": [
+			1,
+			0,
+			10
+		]
+	},
+	"capabilities": [
+		"script_eval"
+	],
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "9b14da4b-0833-41d0-93cd-729874de96f0",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "2a9c0144-2766-47c2-80a0-7eafdd3d135d",
+			"entry": "scripts/mainiHExtreme.js",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"description": "mojang-gametest",
+			"uuid": "6f4b6893-1bb6-42fd-b458-7fa3d0c89616",
+			"version": "1.0.0-beta"
+		},
+		{
+			"description": "mojang-minecraft-ui",
+			"uuid": "2bd50a27-ab5f-4f40-a596-3641627c635e",
+			"version": "1.0.0-beta"
+		},
+		{
+			"description": "mojang-minecraft",
+			"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
+			"version": "1.1.0-beta"
+		}
+	]
+}

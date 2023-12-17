@@ -1,0 +1,17 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "bridge:testitem_chestplate",
+			"category": "equipment",
+			"components": {
+				"minecraft:icon": {
+					"texture": "bridge_testitem_chestplate"
+				},
+				"minecraft:armor": {
+					"protection": 6
+				}
+			}
+		}
+	}
+}

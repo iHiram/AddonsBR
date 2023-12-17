@@ -1,0 +1,70 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"iHiram"
+		]
+	},
+	"header": {
+		"name": "Helmet Night Vision",
+		"description": "Helmet Night Vision",
+		"min_engine_version": [
+			1,
+			19,
+			60
+		],
+		"uuid": "a8818237-e834-463c-bc68-a8b166c8925f",
+		"version": [
+			1,
+			0,
+			20
+		]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "47dcf8c6-8edc-4aa7-ba90-6f69cd69a47f",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "acace0e7-c61c-46b1-b433-53fa39ff6fbe",
+			"entry": "scripts/main.js",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"description": "mojang-gametest",
+			"uuid": "6f4b6893-1bb6-42fd-b458-7fa3d0c89616",
+			"version": "1.0.0-beta"
+		},
+		{
+			"description": "mojang-minecraft-ui",
+			"uuid": "2bd50a27-ab5f-4f40-a596-3641627c635e",
+			"version": "1.0.0-beta"
+		},
+		{
+			"description": "mojang-minecraft",
+			"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
+			"version": "1.2.0-beta"
+		},
+		{
+			"uuid": "cd760ec5-2fd1-475b-838e-2197dc84bf1d",
+			"version": [
+				1,
+				0,
+				33
+			]
+		}
+	]
+}

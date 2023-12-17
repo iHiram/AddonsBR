@@ -1,0 +1,38 @@
+{
+	"type": "minecraftBedrock",
+	"name": "player_corpse_1.19.70",
+	"namespace": "bridge",
+	"authors": [
+		"Unknown"
+	],
+	"targetVersion": "1.19.60",
+	"description": "Made by @XxPoggyisLitxX. Manifest fixed by @DJ Stomp",
+	"experimentalGameplay": {},
+	"bdsProject": false,
+	"packs": {
+		"resourcePack": "./RP",
+		"behaviorPack": "./BP"
+	},
+	"worlds": [
+		"./worlds/*"
+	],
+	"compiler": {
+		"plugins": [
+			"generatorScripts",
+			"typeScript",
+			"entityIdentifierAlias",
+			"customEntityComponents",
+			"customItemComponents",
+			"customBlockComponents",
+			"customCommands",
+			"moLang",
+			"formatVersionCorrection",
+			[
+				"simpleRewrite",
+				{
+					"packName": "player_corpse_1.19.70"
+				}
+			]
+		]
+	}
+}

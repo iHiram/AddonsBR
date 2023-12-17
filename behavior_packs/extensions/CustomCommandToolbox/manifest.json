@@ -1,0 +1,22 @@
+{
+	"author": "rebrainertv",
+	"icon": "mdi-hammer-screwdriver",
+	"name": "Custom Command Toolbox",
+	"version": "1.0.2",
+	"id": "a2de4fa6-e59f-4e54-90e3-816f2144dab0",
+	"description": "A collection of custom commands for your function files to make life easier!",
+	"api_version": 2,
+	"target": "v2",
+	"tags": ["Utility"],
+	"contributeFiles": {
+		"commands/toolbox": {
+			"pack": "behaviorPack",
+			"path": "commands/toolbox/"
+		},
+		"structures/letters": {
+			"pack": "behaviorPack",
+			"path": "structures/bridge/"
+		}
+	},
+	"releaseTimestamp": 1620755291803
+}

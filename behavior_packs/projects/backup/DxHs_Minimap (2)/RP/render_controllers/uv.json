@@ -1,0 +1,82 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.uv": {
+      "geometry": "Geometry.uv",
+      "materials": [
+        {
+          "*": "Material.block"
+        }
+      ],
+      "textures": ["Texture.uv"],
+      "is_hurt_color": {},
+      "on_fire_color": {}
+    },
+    "controller.render.uv_1": {
+      "geometry": "Geometry.uv_1",
+      "materials": [
+        {
+          "*": "Material.block"
+        }
+      ],
+      "textures": ["Texture.uv"],
+      "is_hurt_color": {},
+      "on_fire_color": {}
+    },
+    "controller.render.uv_2": {
+      "geometry": "Geometry.uv_2",
+      "materials": [
+        {
+          "*": "Material.block"
+        }
+      ],
+      "textures": ["Texture.uv"],
+      "is_hurt_color": {},
+      "on_fire_color": {}
+    },
+    "controller.render.uv_3": {
+      "geometry": "Geometry.uv_3",
+      "materials": [
+        {
+          "*": "Material.block"
+        }
+      ],
+      "textures": ["Texture.uv"],
+      "is_hurt_color": {},
+      "on_fire_color": {}
+    },
+    "controller.render.uv_4": {
+      "geometry": "Geometry.uv_4",
+      "materials": [
+        {
+          "*": "Material.block"
+        }
+      ],
+      "textures": ["Texture.uv"],
+      "is_hurt_color": {},
+      "on_fire_color": {}
+    },
+    "controller.render.uv_5": {
+      "geometry": "Geometry.uv_5",
+      "materials": [
+        {
+          "*": "Material.block"
+        }
+      ],
+      "textures": ["Texture.uv"],
+      "is_hurt_color": {},
+      "on_fire_color": {}
+    },
+    "controller.render.uv_6": {
+      "geometry": "Geometry.uv_6",
+      "materials": [
+        {
+          "*": "Material.block"
+        }
+      ],
+      "textures": ["Texture.uv"],
+      "is_hurt_color": {},
+      "on_fire_color": {}
+    }
+  }
+}
