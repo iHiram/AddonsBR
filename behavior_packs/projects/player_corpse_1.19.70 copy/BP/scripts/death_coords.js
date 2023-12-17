@@ -22,7 +22,7 @@ let nameGuardians;
 let playerlocation;
 var mapDie = new Map();
 const Infinity = 9999
-
+let strCoord;
 let listCord = new Array();
 world.afterEvents.entityDie.subscribe((data) => {
   let { deadEntity } = data;
@@ -32,7 +32,7 @@ world.afterEvents.entityDie.subscribe((data) => {
     let Dimension = world.getDimension(player.dimension.id)
     playerdie = player;
     playerlocation = new Vector(player.location.x, player.location.y, player.location.z);
-    let strCoord = player.dimension.id + ', ' + Math.round(player.location.x) + ' ' + Math.round(player.location.y) + ' ' + Math.round(player.location.z)
+    strCoord = player.dimension.id + ', ' + Math.round(player.location.x) + ' ' + Math.round(player.location.y) + ' ' + Math.round(player.location.z)
 
     listCord = new Array();
     console.warn('length')
@@ -163,7 +163,9 @@ world.afterEvents.playerSpawn.subscribe((data) => {
   let { initialSpawn, player } = data;
   if (initialSpawn == false) {
     // Agrega el ítem al inventario del jugador
-    player.runCommandAsync('/give @s pog:bone_dust 1')
+    let ltSplit =  strCoord.split(',');
+    let enc = new TextEncoder();
+    player.runCommandAsync('/give @s pog:bone_dust 1 0 {display:{Name:"'+enc.encode(ltSplit[1])+'"}')
   }
 })
 
@@ -198,7 +200,8 @@ world.afterEvents.itemUse.subscribe((data) => {
           formTP.show(source).then((response) => {
             let text = new String(listCord[response.selection]);
             console.warn(text)
-            let arraystr = text.split(', ')
+            let enc = new TextDecoder();
+            let arraystr = enc.decode(itemStack.nameTag);
             let strGps = arraystr[1].split(' ')
             let x = new Number(strGps[0])
             let y = new Number(strGps[1])
