@@ -1,4 +1,4 @@
-import { world, Dimension } from '@minecraft/server';
+import { world, Dimension, EntityEffectOptions } from '@minecraft/server';
 import { system } from '@minecraft/server';
 const zombie_villager_v2 = 'minecraft:zombie_villager_v2'
 const spider = 'minecraft:spider';
@@ -135,7 +135,7 @@ function addEffects(entity) {
     irand = random(1, tProb);
     if (listMobsRegular.includes(entity.typeId)) {
         console.warn(entity.typeId)
-        console.warn('Effectospeedd')
+        console.warn('Effectospeedd22')
         entity.addEffect("speed", Infinity, { "amplifier": random(1, 2), showParticles: true });
         if (irand <= tProbMobsRegular) {
             console.warn('Effecto')
