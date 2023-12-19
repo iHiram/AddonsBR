@@ -59,13 +59,7 @@ console.warn("Version 1.1.11");
 world.afterEvents.entitySpawn.subscribe(evnt => {
     let entity = evnt.entity;
     irand = random(1, tProb);
-    console.warn(irand)
-    console.warn("-------");
-    console.warn(entity.nameTag)
-    console.warn("-------");
-    console.warn(entity.typeId)
-    console.warn("-------");
-    if (listMobs.includes(entity.typeId) && entity.nameTag != entity.typeId) {
+    if (listMobs.includes(entity.typeId) && entity.nameTag == "") {
         if (irand <= iCommun && !bSpawn && entity.typeId != zombie_villager_v2) {
             let dimension = world.getDimension(entity.dimension.id);
             dimension.spawnEntity(entity.typeId, entity.location);
@@ -85,9 +79,10 @@ world.afterEvents.entitySpawn.subscribe(evnt => {
             console.warn('effects main')
             addEffects(entity);
         }
-    } else if (entity.nameTag != entity.typeId) {
-        entity.runCommandAsync("effect @s clear");
     }
+    /* else if (entity.nameTag != "") {
+        entity.runCommandAsync("effect @s clear");
+    }*/
 
 })
 world.afterEvents.projectileHitEntity.subscribe(data => {
@@ -140,12 +135,14 @@ function addEffects(entity) {
     irand = random(1, tProb);
     if (listMobsRegular.includes(entity.typeId)) {
         console.warn(entity.typeId)
-        console.warn('Effecto0')
+        console.warn('Effectospeedd')
+        entity.addEffect("speed", Infinity, { "amplifier": random(1, 2), showParticles: true });
         if (irand <= tProbMobsRegular) {
             console.warn('Effecto')
             irand = random(1, tProb);
+
             if (irand <= iSoCommun) {
-                entity.addEffect("speed", Infinity, random(1, 2));
+                entity.addEffect("speed", Infinity, { "amplifier": random(1, 2), showParticles: true });
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
