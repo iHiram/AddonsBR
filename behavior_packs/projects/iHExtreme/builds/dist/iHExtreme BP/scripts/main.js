@@ -1,4 +1,4 @@
-import { world, MinecraftEffectTypes, MinecraftItemTypes, Dimension, ItemStack, MinecraftBlockTypes, MinecraftEntityTypes } from '@minecraft/server';
+import { world, Dimension } from '@minecraft/server';
 import { system } from '@minecraft/server';
 const zombie_villager_v2 = 'minecraft:zombie_villager_v2'
 const spider = 'minecraft:spider';
@@ -56,7 +56,7 @@ const iSoLegent = (tProb * 0.03);
 let irand = random(1, tProb);
 let bSpawn = false;
 console.warn("Version 1.1.11");
-world.events.entitySpawn.subscribe(evnt => {
+world.afterEvents.entitySpawn.subscribe(evnt => {
     let entity = evnt.entity;
     irand = random(1, tProb);
     console.warn(entity.nameTag)
@@ -80,7 +80,7 @@ world.events.entitySpawn.subscribe(evnt => {
     }
 
 })
-world.events.projectileHit.subscribe(data => {
+world.afterEvents.projectileHitEntity.subscribe(data => {
     let { projectile, source, entityHit, blockHit } = data;
     let entityhit = data.getEntityHit();
     if (entityhit != undefined) {
@@ -110,15 +110,17 @@ world.events.projectileHit.subscribe(data => {
     }
 })
 
-world.events.entityHit.subscribe(data => {
-    let { entity, hitEntity } = data;
-    if (data.hitEntity != undefined) {
-        if (listMobs.includes(data.entity.typeId)) {
+world.afterEvents.entityHurt.subscribe(data => {
+    let { damageSource, hurtEntity } = data;
+    let hitEntity = hurtEntity
+    let entity = data.damageSource.damagingEntity
+    if (hitEntity != undefined) {
+        if (listMobs.includes(entity.typeId)) {
             runEffect(data.hitEntity, data.entity);
-            if (data.entity.hasTag('ef-knockback')) {
+            if (entity.hasTag('ef-knockback')) {
                 irand = random(1, tProb);
                 if (irand <= iSoCommun) {
-                    data.hitEntity.applyKnockback(0, 0, 0, random(1, 2))
+                    hitEntity.applyKnockback(0, 0, 0, random(1, 2))
                 }
             }
         }
@@ -132,27 +134,27 @@ function addEffects(entity) {
             console.warn('Effecto')
             irand = random(1, tProb);
             if (irand <= iSoCommun) {
-                entity.addEffect(MinecraftEffectTypes.speed, Infinity, random(1, 2));
+                entity.addEffect("speed", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
-                entity.addEffect(MinecraftEffectTypes.absorption, Infinity, random(1, 2));
+                entity.addEffect("absorption", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iCommun) {
-                entity.addEffect(MinecraftEffectTypes.strength, Infinity, random(1, 2));
+                entity.addEffect("strength", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
-                entity.addEffect(MinecraftEffectTypes.resistance, Infinity, random(1, 2));
+                entity.addEffect("resistance", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iLegent) {
-                entity.addEffect(MinecraftEffectTypes.regeneration, Infinity, random(1, 4));
+                entity.addEffect("regeneration", Infinity, random(1, 4));
             }
             irand = random(1, tProb);
             if (irand <= iRare) {
-                entity.addEffect(MinecraftEffectTypes.invisibility, Infinity, 20);
+                entity.addEffect("invisibility", Infinity, 20);
             }
             irand = random(1, tProb);
             if (irand <= iLegent) {
@@ -220,27 +222,27 @@ function addEffects(entity) {
         if (irand <= tProbMobsSpider) {
             irand = random(1, tProb);
             if (irand <= iSoRare) {
-                entity.addEffect(MinecraftEffectTypes.speed, Infinity, random(1, 2));
+                entity.addEffect("speed", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
-                entity.addEffect(MinecraftEffectTypes.absorption, Infinity, random(1));
+                entity.addEffect("absorption", Infinity, random(1));
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
-                entity.addEffect(MinecraftEffectTypes.strength, Infinity, random(1, 2));
+                entity.addEffect("strength", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
-                entity.addEffect(MinecraftEffectTypes.resistance, Infinity, random(1));
+                entity.addEffect("resistance", Infinity, random(1));
             }
             irand = random(1, tProb);
             if (irand <= iSoCommun) {
-                entity.addEffect(MinecraftEffectTypes.regeneration, Infinity, random(1));
+                entity.addEffect("regeneration", Infinity, random(1));
             }
             irand = random(1, tProb);
             if (irand <= iRare) {
-                entity.addEffect(MinecraftEffectTypes.invisibility, Infinity, 20);
+                entity.addEffect("invisibility", Infinity, 20);
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
@@ -304,27 +306,27 @@ function addEffects(entity) {
         if (irand <= tProbMobsRare) {
             irand = random(1, tProb);
             if (irand <= iSoRare) {
-                entity.addEffect(MinecraftEffectTypes.speed, Infinity, random(1, 2));
+                entity.addEffect("speed", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
-                entity.addEffect(MinecraftEffectTypes.absorption, Infinity, random(1, 2));
+                entity.addEffect("absorption", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
-                entity.addEffect(MinecraftEffectTypes.strength, Infinity, random(1, 2));
+                entity.addEffect("strength", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
-                entity.addEffect(MinecraftEffectTypes.resistance, Infinity, random(1, 2));
+                entity.addEffect("resistance", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iLegent) {
-                entity.addEffect(MinecraftEffectTypes.regeneration, Infinity, random(1, 4));
+                entity.addEffect("regeneration", Infinity, random(1, 4));
             }
             irand = random(1, tProb);
             if (irand <= iLegent) {
-                entity.addEffect(MinecraftEffectTypes.invisibility, Infinity, 20);
+                entity.addEffect("invisibility", Infinity, 20);
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
@@ -392,23 +394,23 @@ function addEffects(entity) {
         if (irand <= tProbMobsExceptions) {
             irand = random(1, tProb);
             if (irand <= iLegent) {
-                entity.addEffect(MinecraftEffectTypes.speed, Infinity, random(1, 2));
+                entity.addEffect("speed", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
-                entity.addEffect(MinecraftEffectTypes.absorption, Infinity, random(1, 2));
+                entity.addEffect("absorption", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
-                entity.addEffect(MinecraftEffectTypes.resistance, Infinity, random(1, 2));
+                entity.addEffect("resistance", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
-                entity.addEffect(MinecraftEffectTypes.regeneration, Infinity, random(1, 2));
+                entity.addEffect("regeneration", Infinity, random(1, 2));
             }
             irand = random(1, tProb);
             if (irand <= iLegent) {
-                entity.addEffect(MinecraftEffectTypes.invisibility, Infinity, 20);
+                entity.addEffect("invisibility", Infinity, 20);
             }
             irand = random(1, tProb);
             if (irand <= iSoRare) {
@@ -478,82 +480,82 @@ function addEffects(entity) {
 function runEffect(entityHit, sourceEntity) {
     let dimension = world.getDimension(entityHit.dimension.id);
     if (sourceEntity.hasTag('ef-wither')) {
-        entityHit.addEffect(MinecraftEffectTypes.wither, random(50, 200), 1);
+        entityHit.addEffect("wither", random(50, 200), 1);
     }
     if (sourceEntity.hasTag('ef-nightvision')) {
-        entityHit.addEffect(MinecraftEffectTypes.nightVision, random(50, 200), 20);
+        entityHit.addEffect("night_vision", random(50, 200), 20);
     }
     if (sourceEntity.hasTag('ef-darkness')) {
-        entityHit.addEffect(MinecraftEffectTypes.darkness, random(50, 200), 2);
+        entityHit.addEffect("darkness", random(50, 200), 2);
     }
     if (sourceEntity.hasTag('ef-levitation')) {
-        entityHit.addEffect(MinecraftEffectTypes.levitation, random(50, 200), 1);
+        entityHit.addEffect("levitation", random(50, 200), 1);
     }
     if (sourceEntity.hasTag('ef-weakness')) {
-        entityHit.addEffect(MinecraftEffectTypes.weakness, random(50, 200), random(1, 2));
+        entityHit.addEffect("weakness", random(50, 200), random(1, 2));
     }
     if (sourceEntity.hasTag('ef-slowness')) {
-        entityHit.addEffect(MinecraftEffectTypes.slowness, random(50, 200), random(1, 2));
+        entityHit.addEffect("slowness", random(50, 200), random(1, 2));
     }
     if (sourceEntity.hasTag('ef-nausea')) {
-        entityHit.addEffect(MinecraftEffectTypes.nausea, random(50, 200), 1);
+        entityHit.addEffect("nausea", random(50, 200), 1);
     }
     if (sourceEntity.hasTag('ef-blindness')) {
-        entityHit.addEffect(MinecraftEffectTypes.blindness, random(50, 300), 1);
+        entityHit.addEffect("blindness", random(50, 300), 1);
     }
     if (sourceEntity.hasTag('ef-hunger')) {
-        entityHit.addEffect(MinecraftEffectTypes.hunger, random(50, 200), random(1, 3));
+        entityHit.addEffect("hunger", random(50, 200), random(1, 3));
     }
     if (sourceEntity.hasTag('ef-poison')) {
-        entityHit.addEffect(MinecraftEffectTypes.poison, random(50, 200), 1);
+        entityHit.addEffect("hunger", random(50, 200), 1);
     }
     if (sourceEntity.hasTag('ef-web')) {
         irand = random(1, tProb);
         if (irand <= iSoRare) {
-            dimension.fillBlocks(entityHit.location, entityHit.location, MinecraftBlockTypes.web);
+            dimension.fillBlocks(entityHit.location, entityHit.location, "web");
         }
     }
     if (sourceEntity.hasTag('ef-lightningBolt')) {
         irand = random(1, tProb);
         if (irand <= iSoCommun) {
-            sourceEntity.addEffect(MinecraftEffectTypes.resistance, 10, 2);
-            sourceEntity.addEffect(MinecraftEffectTypes.absorption, 10, 2);
+            sourceEntity.addEffect("resistance", 10, 2);
+            sourceEntity.addEffect("absorption", 10, 2);
             dimension.spawnEntity('minecraft:lightning_bolt', entityHit.location);
             irand = random(1, tProb);
             if (irand <= (iRare)) {
-                entityHit.addEffect(MinecraftEffectTypes.resistance, 5, 1);
-                entityHit.addEffect(MinecraftEffectTypes.blindness, random(30, 50), 1);
+                entityHit.addEffect("resistance", 5, 1);
+                entityHit.addEffect("blindness", random(30, 50), 1);
                 let objEndermite1 = dimension.spawnEntity(endermite, entityHit.location);
                 let objEndermite2 = dimension.spawnEntity(endermite, entityHit.location);
                 let objEndermite3 = dimension.spawnEntity(endermite, entityHit.location);
                 objEndermite1.addTag('bornEffect')
                 objEndermite2.addTag('bornEffect')
                 objEndermite3.addTag('bornEffect')
-                objEndermite1.addEffect(MinecraftEffectTypes.speed, Infinity, 1);
-                objEndermite2.addEffect(MinecraftEffectTypes.speed, Infinity, 1);
-                objEndermite3.addEffect(MinecraftEffectTypes.speed, Infinity, 1);
+                objEndermite1.addEffect("speed", Infinity, 1);
+                objEndermite2.addEffect("speed", Infinity, 1);
+                objEndermite3.addEffect("speed", Infinity, 1);
             }
         }
     }
     if (sourceEntity.hasTag('ef-explosion')) {
         irand = random(1, tProb);
         if (irand <= iSoCommun) {
-            sourceEntity.addEffect(MinecraftEffectTypes.resistance, 10, 2);
-            sourceEntity.addEffect(MinecraftEffectTypes.absorption, 10, 2);
+            sourceEntity.addEffect("resistance", 10, 2);
+            sourceEntity.addEffect("absorption", 10, 2);
             dimension.createExplosion(entityHit.location, 1, objExplosionOption);
             irand = random(1, tProb);
             if (irand <= (iRare)) {
-                entityHit.addEffect(MinecraftEffectTypes.resistance, 5, 1);
-                entityHit.addEffect(MinecraftEffectTypes.blindness, random(30, 50), 1);
+                entityHit.addEffect("resistance", 5, 1);
+                entityHit.addEffect("blindness", random(30, 50), 1);
                 let objEndermite1 = dimension.spawnEntity(endermite, entityHit.location);
                 let objEndermite2 = dimension.spawnEntity(endermite, entityHit.location);
                 let objEndermite3 = dimension.spawnEntity(endermite, entityHit.location);
                 objEndermite1.addTag('bornEffect')
                 objEndermite2.addTag('bornEffect')
                 objEndermite3.addTag('bornEffect')
-                objEndermite1.addEffect(MinecraftEffectTypes.speed, Infinity, 1);
-                objEndermite2.addEffect(MinecraftEffectTypes.speed, Infinity, 1);
-                objEndermite3.addEffect(MinecraftEffectTypes.speed, Infinity, 1);
+                objEndermite1.addEffect("speed", Infinity, 1);
+                objEndermite2.addEffect("speed", Infinity, 1);
+                objEndermite3.addEffect("speed", Infinity, 1);
             }
         }
     }

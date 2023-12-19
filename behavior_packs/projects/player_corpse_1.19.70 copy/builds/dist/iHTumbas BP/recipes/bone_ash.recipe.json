@@ -8,9 +8,7 @@
 			"campfire",
 			"soul_campfire"
 		],
-		"input": {
-			"item": "pog:decayed_bone"
-		},
+		"input": "pog:decayed_bone",
 		"output": "pog:bone_dust"
 	}
 }

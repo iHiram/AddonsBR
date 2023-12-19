@@ -10,7 +10,8 @@
 			"minecraft:display_name": {
 				"value": "bone.dust"
 			},
-			"minecraft:hand_equipped": false,
+			"minecraft:hand_equipped": true,
+			"minecraft:allow_off_hand": true,
 			"minecraft:icon": {
 				"texture": "bone_dust"
 			}

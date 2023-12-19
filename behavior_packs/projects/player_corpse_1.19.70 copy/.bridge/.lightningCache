@@ -1,11 +1,11 @@
 $formatVersion: 1
 #manifest
-projects/player_corpse_1.19.70 copy/BP/manifest.json|1688951293
+projects/player_corpse_1.19.70 copy/BP/manifest.json|1702880710
 #unknown
 projects/player_corpse_1.19.70 copy/BP/pack_icon.png|1681749119
 projects/player_corpse_1.19.70 copy/RP/pack_icon.png|1681749119
 #gameTest
-projects/player_corpse_1.19.70 copy/BP/scripts/death_coords.js|1688951196
+projects/player_corpse_1.19.70 copy/BP/scripts/death_coords.js|1702913261
 #animation
 projects/player_corpse_1.19.70 copy/BP/animations/animation.player_corpse.pickup.items.json|1681749119|{"identifier":["animation.player_corpse.pickup.items"],"functionPath":[],"entityTag":[],"scoreboardObjective":[]}
 #customCommand
@@ -35,15 +35,15 @@ projects/player_corpse_1.19.70 copy/BP/blocks/jar_ash.block.json|1681749119|{"id
 #entity
 projects/player_corpse_1.19.70 copy/BP/entities/player_corpse.behavior.json|1684950629|{"identifier":["pog:player_corpse"],"event":["decay_stage_1","decay_stage_2","decay_stage_3","marked","delete_corpse","minecraft:entity_spawned","taged","entity_transform"],"eventReference":["test","decay_stage_1","delete_corpse","decay_stage_2","decay_stage_3"],"componentGroup":["marked","transform_entity","delete_corpse","variant_1","variant_2","variant_3","add_tag"],"animation":["basic","drop_dust"],"animationIdentifier":["controller.animation.poggy.player_death","animation.player_corpse.pickup.items"],"functionPath":[],"entityTag":[],"scoreboardObjective":[]}
 #item
-projects/player_corpse_1.19.70 copy/BP/items/bone_dust.json|1688927253|{"identifier":["pog:bone_dust"],"itemTexture":["bone_dust"],"tag":[]}
+projects/player_corpse_1.19.70 copy/BP/items/bone_dust.json|1702876838|{"identifier":["pog:bone_dust"],"itemTexture":["bone_dust"],"tag":[]}
 projects/player_corpse_1.19.70 copy/BP/items/3erojo_helmet.json|1684983295|{"identifier":["pog:3erojo_helmet"],"itemTexture":["bridge_3erojo_helmet"],"tag":[]}
-projects/player_corpse_1.19.70 copy/BP/items/decayed_bone.json|1688927076|{"identifier":["pog:decayed_bone"],"itemTexture":["decayed_bone"],"tag":[]}
+projects/player_corpse_1.19.70 copy/BP/items/decayed_bone.json|1702875625|{"identifier":["pog:decayed_bone"],"itemTexture":["decayed_bone"],"tag":[]}
 projects/player_corpse_1.19.70 copy/BP/items/diamontTeleport.json|1688927093|{"identifier":["pog:diamontTeleport"],"itemTexture":["diamond"],"tag":[]}
 #recipe
-projects/player_corpse_1.19.70 copy/BP/recipes/bone_ash.recipe.json|1684949752|{"identifier":["pog:bone_ash"],"recipeTag":["campfire","soul_campfire"],"itemIdentifier":["item","pog:bone_dust"]}
+projects/player_corpse_1.19.70 copy/BP/recipes/bone_ash.recipe.json|1702872311|{"identifier":["pog:bone_ash"],"recipeTag":["campfire","soul_campfire"],"itemIdentifier":["pog:decayed_bone","pog:bone_dust"]}
 projects/player_corpse_1.19.70 copy/BP/recipes/jar.json|1681749119|{"identifier":["pog:ash_jar"],"recipeTag":["crafting_table"],"itemIdentifier":["pog:jar_ash","pog:bone_dust","minecraft:glass_bottle"]}
-projects/player_corpse_1.19.70 copy/BP/recipes/bonemeal.recipe.json|1681749119|{"identifier":["pog:bonemeal"],"recipeTag":["crafting_table"],"itemIdentifier":["minecraft:bone_meal","pog:bone_dust"]}
-projects/player_corpse_1.19.70 copy/BP/recipes/keyTeleport.json|1688947619|{"identifier":["pog:diamontTeleport"],"recipeTag":["crafting_table"],"itemIdentifier":["pog:diamontTeleport","pog:bone_dust","minecraft:diamond","minecraft:blaze_powder","minecraft:glowstone_dust"]}
+projects/player_corpse_1.19.70 copy/BP/recipes/bonemeal.recipe.json|1702871613|{"identifier":["pog:bonemeal"],"recipeTag":["crafting_table"],"itemIdentifier":["minecraft:bone_meal","pog:bone_dust"]}
+projects/player_corpse_1.19.70 copy/BP/recipes/keyTeleport.json|1702871413|{"identifier":["pog:diamontTeleport"],"recipeTag":["crafting_table"],"itemIdentifier":["pog:diamontTeleport","pog:decayed_bone","minecraft:diamond","minecraft:blaze_powder","minecraft:glowstone_dust"]}
 #function
 projects/player_corpse_1.19.70 copy/BP/functions/despawn_corpse_in_radius.mcfunction|1681749119|{"entityTag":["lol"],"functionPath":[],"scoreboardObjective":[]}
 #mcstructure
@@ -112,7 +112,7 @@ projects/player_corpse_1.19.70 copy/BP/components/item/bridge/itemEquippedSensor
 #clientBlock
 projects/player_corpse_1.19.70 copy/RP/blocks.json|1681749119|{"identifier":["jar_ash"]}
 #clientManifest
-projects/player_corpse_1.19.70 copy/RP/manifest.json|1688951293|{"uuid":["cb52e7bf-712b-41d7-8408-b3c8e769a2ce"]}
+projects/player_corpse_1.19.70 copy/RP/manifest.json|1702880710|{"uuid":["cb52e7bf-712b-41d7-8408-b3c8e769a2ce"]}
 #langDef
 projects/player_corpse_1.19.70 copy/RP/texts/languages.json|1681749119
 #ui
@@ -156,4 +156,3 @@ projects/player_corpse_1.19.70 copy/RP/attachables/3erojo_helmet.json|1684983339
 #terrainTexture
 projects/player_corpse_1.19.70 copy/RP/textures/terrain_texture.json|1681749119|{"texture":["jar_ash"],"texturePath":[]}
 #bridgeConfig
-projects/player_corpse_1.19.70 copy/config.json|1702839009862

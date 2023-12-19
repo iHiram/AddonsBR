@@ -7,7 +7,7 @@
 		"version": [
 			1,
 			10,
-			37
+			76
 		],
 		"min_engine_version": [
 			1,
@@ -49,19 +49,19 @@
 		{
 			"description": "mojang-minecraft-ui",
 			"uuid": "2bd50a27-ab5f-4f40-a596-3641627c635e",
-			"version": "1.1.0-beta"
+			"version": "1.2.0-beta"
 		},
 		{
 			"description": "mojang-minecraft",
 			"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
-			"version": "1.3.0-beta"
+			"version": "1.8.0-beta"
 		},
 		{
 			"uuid": "cb52e7bf-712b-41d7-8408-b3c8e769a2ce",
 			"version": [
 				1,
 				10,
-				10
+				49
 			]
 		}
 	],

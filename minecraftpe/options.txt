@@ -117,7 +117,7 @@ number_of_owned_realms:0
 number_of_friends_realms:0
 realms_view_upsell_screen_count:3
 shown_ratings_prompt:0
-save_and_quit_count:0
+save_and_quit_count:1
 show_worlds_trial_button:1
 allow_cellular_data:0
 auto_update_mode:1
@@ -203,8 +203,8 @@ chat_font_size:12
 chat_line_spacing:1
 chat_mentions_color_code:§e
 chat_typeface:0
-content_log_file:0
-content_log_gui:0
+content_log_file:1
+content_log_gui:1
 gameplay_tips_enabled:0
 gameplay_tips_should_be_shown:1
 iap_owning_account:
@@ -247,7 +247,7 @@ show_render_distance_warning_modal:0
 has_shown_storage_location_warning:0
 game_event_retention_ticks:0
 deep_dark_debug_render:0
-copy_coordinate_ui:0
+copy_coordinate_ui:1
 darkness_effect_modifier:1
 glint_strength:0.75
 glint_speed:0.5
@@ -316,9 +316,9 @@ do_not_show_experimental_worlds_warning:[""]
 emoteChat:1
 loading_tips_index:-1
 nether_reached:0
-has_dismissed_new_player_flow:0
+has_dismissed_new_player_flow:1
 new_player_flow_abc_test_group:1
-app_launched_count:2
+app_launched_count:3
 ctrl_improvedInputResponse:0
 gfx_debug_trace:0
 xbl_use_remote_connect:0

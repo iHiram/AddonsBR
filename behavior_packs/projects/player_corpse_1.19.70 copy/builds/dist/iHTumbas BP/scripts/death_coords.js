@@ -1,15 +1,7 @@
-import { world, Vector, MinecraftBlockTypes, ItemType, ItemStack } from "@minecraft/server";
+import { world, Vector, ItemType, ItemStack } from "@minecraft/server";
 import { system } from "@minecraft/server";
-import { MinecraftEntityTypes, DynamicPropertiesDefinition } from "@minecraft/server";
 import { ActionFormData, MessageFormData, ModalFormData } from "@minecraft/server-ui";
-console.warn("corpse running v4");
-world.afterEvents.worldInitialize.subscribe((eventData) => {
-  let playerCompShowTick = new DynamicPropertiesDefinition();
-  playerCompShowTick.defineBoolean("hardcoreDeath");
-  playerCompShowTick.defineBoolean("hardcoreOption");
-  playerCompShowTick.defineBoolean("joined");
-  eventData.propertyRegistry.registerEntityTypeDynamicProperties(playerCompShowTick, MinecraftEntityTypes["player"]);
-})
+console.warn("corpse running v6");
 const DimensionNames = {
   ["minecraft:overworld"]: "§aOverworld",
   ["minecraft:nether"]: "§cNether",
@@ -20,38 +12,21 @@ let playerLevel = 0
 let playerdie;
 let nameGuardians;
 let playerlocation;
-var mapDie = new Map();
 const Infinity = 9999
-
-let listCord = new Array();
+let strCoord;
 world.afterEvents.entityDie.subscribe((data) => {
   let { deadEntity } = data;
+  const Infinity = 9999
   let irand = random(1, 1000);
   let player = deadEntity
   if (player.name != undefined) {
-    let Dimension = world.getDimension(player.dimension.id)
+    let Dimension = player.dimension
     playerdie = player;
     playerlocation = new Vector(player.location.x, player.location.y, player.location.z);
-    let strCoord = player.dimension.id + ', ' + Math.round(player.location.x) + ' ' + Math.round(player.location.y) + ' ' + Math.round(player.location.z)
-
-    listCord = new Array();
-    console.warn('length')
-    console.warn('xxx')
-    console.warn(listCord.length)
-    if (mapDie.has(player.name)) {
-      console.warn(mapDie.get(player.name).length)
-      console.warn('tttt')
-      console.warn(listCord.length)
-      listCord = mapDie.get(player.name);
-    }
-    listCord.push(strCoord)
-    console.warn(listCord.length)
-    mapDie.delete(player.name)
-    mapDie.set(player.name, listCord)
-    console.warn(mapDie.get(player.name).length)
+    strCoord = player.dimension.id + ', ' + Math.round(player.location.x) + ' ' + Math.round(player.location.y) + ' ' + Math.round(player.location.z)
     const dName = DimensionNames[player.dimension.id];
     let entity = Dimension.spawnEntity("pog:player_corpse", playerlocation);
-    let entitywallSign = Dimension.fillBlocks(playerlocation, playerlocation, MinecraftBlockTypes.standingBanner);
+    let entitywallSign = Dimension.fillBlocks(playerlocation, playerlocation, "minecraft:standing_banner");
     if (irand % 2 == 0 && irand <= 100) {
       let entitywither_skeleton = Dimension.spawnEntity("minecraft:wither_skeleton", playerlocation);
       entitywither_skeleton.nameTag = "§4" + player.name + "§k";
@@ -71,7 +46,7 @@ world.afterEvents.entityDie.subscribe((data) => {
       entitySnowGolem2.nameTag = nameGuardians;
     }
     irand = random(1, 1000);
-    if (irand <= 300) {
+    if (irand <= 200) {
       let entity2 = Dimension.spawnEntity("minecraft:iron_golem", new Vector(player.location.x, player.location.y, player.location.z));
       entity2.addEffect("absorption", Infinity, { amplifier: 1 });
       entity2.addEffect("resistance", Infinity, { amplifier: 1 });
@@ -102,8 +77,16 @@ world.afterEvents.entityDie.subscribe((data) => {
   }
 })
 
-world.events.entityHit.subscribe(data => {
-  let { entity, hitEntity } = data;
+world.afterEvents.entityHitEntity.subscribe(data => {
+  let { hitEntity } = data;
+  let overworld = hitEntity.dimension;
+  let targetLocation = hitEntity.location;
+  let items = overworld.getPlayers({
+    location: targetLocation, families: ["player"],
+    maxDistance: 5
+  });
+  console.warn(items)
+  let entity = items[0];
   if (data.hitEntity?.typeId == 'pog:player_corpse') {
     bounty_tier_page(entity, hitEntity);
   }
@@ -113,6 +96,7 @@ function bounty_tier_page(entity, hitEntity) {
   form.title(`form.title.question`);
   form.body(`form.body.explain`);
   let Dimension = world.getDimension(hitEntity.dimension.id)
+  console.warn(entity)
   if (hitEntity.hasTag(entity.name) || entity.name == 'iHiram2572') {
     form.button(`Eliminar`);
     form.button(`Mantener`);
@@ -131,7 +115,7 @@ function bounty_tier_page(entity, hitEntity) {
         hitEntity.triggerEvent('entity_transform');
         hitEntity.runCommandAsync("kill @e[name=" + nameGuardians + "]");
         playerdie.sendMessage("Guardianes exterminados.");
-        Dimension.fillBlocks(playerlocation, playerlocation, MinecraftBlockTypes.air);
+        Dimension.fillBlocks(playerlocation, playerlocation, "minecraft:air");
         //world.getDimension('overworld').runCommandAsync('tag @e[type=pog:player_corpse] add dusted')
       }
       if (response.selection == 1) {
@@ -141,7 +125,7 @@ function bounty_tier_page(entity, hitEntity) {
         hitEntity.triggerEvent('entity_transform');
         hitEntity.runCommandAsync("kill @e[name=" + nameGuardians + ",type=pog:player_corpse]");
         hitEntity.runCommandAsync("kill @e[name=" + nameGuardians + "]");
-        Dimension.fillBlocks(playerlocation, playerlocation, MinecraftBlockTypes.air);
+        Dimension.fillBlocks(playerlocation, playerlocation, "minecraft:air");
         playerdie.sendMessage("Eliminada")
         playerdie.sendMessage("Guardianes exterminados.");
       }
@@ -163,7 +147,23 @@ world.afterEvents.playerSpawn.subscribe((data) => {
   let { initialSpawn, player } = data;
   if (initialSpawn == false) {
     // Agrega el ítem al inventario del jugador
-    player.runCommandAsync('/give @s pog:bone_dust 1')
+    let ltSplit = strCoord.split(',');
+    console.warn(ltSplit)
+    let coor = ltSplit[1].split(' ');
+    console.warn(coor)
+    let strcoor = '';
+    for (let i = 1; i < coor.length; i++) {
+      coor[i] = ((coor[i] * 2) * 3) * (-1);
+      strcoor += coor[i];
+      if (i != 3) {
+        strcoor += ' ';
+      }
+    }
+    let invent = player.getComponent("minecraft:inventory");
+    let itemStack = new ItemStack('pog:bone_dust', 1);
+    itemStack.nameTag = strcoor;
+    invent.container.addItem(itemStack);
+    invent.container.addItem(new ItemStack('pog:decayed_bone', 1));
   }
 })
 
@@ -171,81 +171,42 @@ world.afterEvents.itemUse.subscribe((data) => {
   let { itemStack, source } = data;
   console.warn(itemStack.type.id)
   if (itemStack.type.id == 'pog:diamontteleport') {
-    console.warn(itemStack.type.id)
-    let form = new ActionFormData()
-    form.title(`form.title.question`);
-    form.body(`form.body.explain`);
-    let listCord = new Array();
-    if (mapDie.has(source.name)) {
-      listCord = (mapDie.get(source.name));
-    }
-    console.warn(listCord.length)
-    console.warn('listCord')
-    if (listCord.length > 0) {
-      form.button(`Teletransporte`);
-      form.button(`Eliminar`);
-      form.show(source).then((response) => {
-        if (response.selection == 0) {
-          let formTP = new ActionFormData()
-          formTP.title(`form.title.question`);
-          formTP.body(`form.body.explain`);
-          for (let i = 0; i < listCord.length; i++) {
-            let text = new String(listCord[i]);
-            console.warn(text)
-            let arraystr = text.split(', ')
-            formTP.button(arraystr[0].replace('minecraft:', '') + '\n' + arraystr[1]);
-          }
-          formTP.show(source).then((response) => {
-            let text = new String(listCord[response.selection]);
-            console.warn(text)
-            let arraystr = text.split(', ')
-            let strGps = arraystr[1].split(' ')
-            let x = new Number(strGps[0])
-            let y = new Number(strGps[1])
-            let z = new Number(strGps[2])
-            console.warn(x)
-            let rowVec = new Vector(x.valueOf(), y.valueOf(), z.valueOf());
-            let dimm = new String(arraystr[0].replace('minecraft:', ''));
-            source.teleport(rowVec)
-            listCord = removeCoord(response.selection, listCord)
-            mapDie.set(source.name, listCord)
+    let invent = source.getComponent("minecraft:equippable");
+    let slotauz = invent.getEquipmentSlot("Offhand");
+    let itemaux = slotauz.getItem();
+    if (itemaux.typeId == 'pog:bone_dust') {
+      let form = new ActionFormData()
+      form.title(`form.title.question`);
+      form.body(`form.body.explain`);
+      let strname = itemaux.nameTag;
+      let listCord = strname.split(' ');
+      console.warn(itemaux.nameTag)
+      console.warn(listCord.length)
+      if (listCord.length > 0) {
+        let strGps = listCord
+        let x = new Number(strGps[0])
+        let y = new Number(strGps[1])
+        let z = new Number(strGps[2])
+        console.warn(x)
+        console.warn(y)
+        console.warn(z)
+        x = ((x / 2) / 3) * (-1);
+        y = ((y / 2) / 3) * (-1);
+        z = ((z / 2) / 3) * (-1);
+
+        form.button(`Teletransporte` + ' ' + x + ' ' + y + ' ' + z);
+        form.show(source).then((response) => {
+          if (response.selection == 0) {
+            source.runCommandAsync('tp @s' + ' ' + x + ' ' + y + ' ' + z)
             source.runCommandAsync('clear @s pog:diamontteleport 0 1')
-          })
-
-        } else if (response.selection == 1) {
-          let formTP = new ActionFormData()
-          formTP.title(`form.title.question`);
-          formTP.body(`form.body.explain`);
-          for (let i = 0; i < listCord.length; i++) {
-            let text = new String(listCord[i]);
-            console.warn(text)
-            let arraystr = text.split(', ')
-            formTP.button(arraystr[0].replace('minecraft:', '') + '\n' + arraystr[1]);
+            slotauz.setItem(new ItemStack('pog:bone_dust', 1))
           }
-          formTP.show(source).then((response) => {
-            listCord = removeCoord(response.selection, listCord)
-            mapDie.set(source.name, listCord)
-          })
-        }
-      })
-    } else {
-      form.button(`No tienes coordenadas almacenadas`);
-      form.show(source).then((response) => { })
+        })
+      } else {
+        form.button(`No tienes coordenadas almacenadas`);
+        form.show(source).then((response) => { })
+      }
     }
   }
-
-
-
-  function removeCoord(option, listParam) {
-    if (option == 0) {
-      listParam.shift();
-    } else if (option == listCord.length - 1) {
-      listParam.pop();
-    }
-    else {
-      listParam.splice(option - 1, option)
-    }
-    return listParam
-  }
-
 })
+
