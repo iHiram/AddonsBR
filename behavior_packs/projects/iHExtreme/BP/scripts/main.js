@@ -59,9 +59,13 @@ console.warn("Version 1.1.11");
 world.afterEvents.entitySpawn.subscribe(evnt => {
     let entity = evnt.entity;
     irand = random(1, tProb);
+    console.warn(irand)
+    console.warn("-------");
     console.warn(entity.nameTag)
+    console.warn("-------");
     console.warn(entity.typeId)
-    if (listMobs.includes(entity.typeId) && entity.nameTag == entity.typeId) {
+    console.warn("-------");
+    if (listMobs.includes(entity.typeId) && entity.nameTag != entity.typeId) {
         if (irand <= iCommun && !bSpawn && entity.typeId != zombie_villager_v2) {
             let dimension = world.getDimension(entity.dimension.id);
             dimension.spawnEntity(entity.typeId, entity.location);
@@ -69,6 +73,10 @@ world.afterEvents.entitySpawn.subscribe(evnt => {
         } else {
             bSpawn = false;
         }
+        console.warn('spideriff')
+        console.warn(spider)
+        console.warn(entity.typeId)
+        console.warn('-----')
         if (entity.typeId == spider) {
             console.warn('spider')
             changeMob(entity);
@@ -83,7 +91,7 @@ world.afterEvents.entitySpawn.subscribe(evnt => {
 
 })
 world.afterEvents.projectileHitEntity.subscribe(data => {
-    let { projectile, source, entityHit, blockHit } = data;
+    let { projectile, source } = data;
     let entityhit = data.getEntityHit();
     if (entityhit != undefined) {
         if (source.typeId == drowned && projectile.typeId == 'minecraft:thrown_trident' && !source.hasTag('ef-lightningBolt') && !source.hasTag('checklightningBolt')) {
@@ -481,7 +489,7 @@ function addEffects(entity) {
 
 }
 function runEffect(entityHit, sourceEntity) {
-    let dimension = world.getDimension(entityHit.dimension.id);
+    let dimension = entityHit.dimension;
     if (sourceEntity.hasTag('ef-wither')) {
         entityHit.addEffect("wither", random(50, 200), 1);
     }

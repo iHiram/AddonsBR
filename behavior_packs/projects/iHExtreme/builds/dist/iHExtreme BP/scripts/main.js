@@ -59,9 +59,13 @@ console.warn("Version 1.1.11");
 world.afterEvents.entitySpawn.subscribe(evnt => {
     let entity = evnt.entity;
     irand = random(1, tProb);
+    console.warn(irand)
+    console.warn("-------");
     console.warn(entity.nameTag)
+    console.warn("-------");
     console.warn(entity.typeId)
-    if (listMobs.includes(entity.typeId) && entity.nameTag == entity.typeId) {
+    console.warn("-------");
+    if (listMobs.includes(entity.typeId) && entity.nameTag != entity.typeId) {
         if (irand <= iCommun && !bSpawn && entity.typeId != zombie_villager_v2) {
             let dimension = world.getDimension(entity.dimension.id);
             dimension.spawnEntity(entity.typeId, entity.location);
@@ -69,10 +73,16 @@ world.afterEvents.entitySpawn.subscribe(evnt => {
         } else {
             bSpawn = false;
         }
+        console.warn('spideriff')
+        console.warn(spider)
+        console.warn(entity.typeId)
+        console.warn('-----')
         if (entity.typeId == spider) {
+            console.warn('spider')
             changeMob(entity);
         }
         if (irand <= iRare) {
+            console.warn('effects main')
             addEffects(entity);
         }
     } else if (entity.nameTag != entity.typeId) {
@@ -81,7 +91,7 @@ world.afterEvents.entitySpawn.subscribe(evnt => {
 
 })
 world.afterEvents.projectileHitEntity.subscribe(data => {
-    let { projectile, source, entityHit, blockHit } = data;
+    let { projectile, source } = data;
     let entityhit = data.getEntityHit();
     if (entityhit != undefined) {
         if (source.typeId == drowned && projectile.typeId == 'minecraft:thrown_trident' && !source.hasTag('ef-lightningBolt') && !source.hasTag('checklightningBolt')) {
@@ -113,7 +123,7 @@ world.afterEvents.projectileHitEntity.subscribe(data => {
 world.afterEvents.entityHurt.subscribe(data => {
     let { damageSource, hurtEntity } = data;
     let hitEntity = hurtEntity
-    let entity = data.damageSource.damagingEntity
+    let entity = damageSource.damagingEntity
     if (hitEntity != undefined) {
         if (listMobs.includes(entity.typeId)) {
             runEffect(data.hitEntity, data.entity);
@@ -130,6 +140,7 @@ function addEffects(entity) {
     irand = random(1, tProb);
     if (listMobsRegular.includes(entity.typeId)) {
         console.warn(entity.typeId)
+        console.warn('Effecto0')
         if (irand <= tProbMobsRegular) {
             console.warn('Effecto')
             irand = random(1, tProb);
@@ -478,7 +489,7 @@ function addEffects(entity) {
 
 }
 function runEffect(entityHit, sourceEntity) {
-    let dimension = world.getDimension(entityHit.dimension.id);
+    let dimension = entityHit.dimension;
     if (sourceEntity.hasTag('ef-wither')) {
         entityHit.addEffect("wither", random(50, 200), 1);
     }
@@ -563,10 +574,19 @@ function runEffect(entityHit, sourceEntity) {
 function changeMob(entity) {
     if (entity.typeId == spider) {
         irand = random(1, tProb);
-        if (irand <= 500) {
+        if (irand <= iRare) {
+            console.warn('spider changed')
             entity.kill();
             entity.runCommandAsync('kill @e[type=item,r=1]');
             entity.runCommandAsync('summon cave_spider ' + ' ' + entity.location.x + ' ' + entity.location.y + ' ' + entity.location.z);
+        }
+    } else if (entity.typeId == creeper) {
+        irand = random(1, tProb);
+        if (irand <= iSoRare) {
+            console.warn('spider changed')
+            entity.kill();
+            entity.runCommandAsync('kill @e[type=item,r=1]');
+            entity.runCommandAsync('summon creeper ' + ' ' + entity.location.x + ' ' + entity.location.y + ' ' + entity.location.z + ' {powered:1}');
         }
     }
 }
