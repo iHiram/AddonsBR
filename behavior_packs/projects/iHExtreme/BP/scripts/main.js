@@ -70,9 +70,11 @@ world.afterEvents.entitySpawn.subscribe(evnt => {
             bSpawn = false;
         }
         if (entity.typeId == spider) {
+            console.warn('spider')
             changeMob(entity);
         }
         if (irand <= iRare) {
+            console.warn('effects main')
             addEffects(entity);
         }
     } else if (entity.nameTag != entity.typeId) {
@@ -130,6 +132,7 @@ function addEffects(entity) {
     irand = random(1, tProb);
     if (listMobsRegular.includes(entity.typeId)) {
         console.warn(entity.typeId)
+        console.warn('Effecto0')
         if (irand <= tProbMobsRegular) {
             console.warn('Effecto')
             irand = random(1, tProb);
@@ -563,10 +566,19 @@ function runEffect(entityHit, sourceEntity) {
 function changeMob(entity) {
     if (entity.typeId == spider) {
         irand = random(1, tProb);
-        if (irand <= 500) {
+        if (irand <= iRare) {
+            console.warn('spider changed')
             entity.kill();
             entity.runCommandAsync('kill @e[type=item,r=1]');
             entity.runCommandAsync('summon cave_spider ' + ' ' + entity.location.x + ' ' + entity.location.y + ' ' + entity.location.z);
+        }
+    } else if (entity.typeId == creeper) {
+        irand = random(1, tProb);
+        if (irand <= iSoRare) {
+            console.warn('spider changed')
+            entity.kill();
+            entity.runCommandAsync('kill @e[type=item,r=1]');
+            entity.runCommandAsync('summon creeper ' + ' ' + entity.location.x + ' ' + entity.location.y + ' ' + entity.location.z + ' {powered:1}');
         }
     }
 }
